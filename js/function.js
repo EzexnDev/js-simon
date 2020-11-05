@@ -2,7 +2,7 @@ function randomPcNumbers() {
     var pcNumbers = [];
     while(pcNumbers.length < 5){
         var r = Math.floor(Math.random() * 100) + 1;
-        if(pcNumbers.indexOf(r) === -1) pcNumbers.push(r);
+        if(!pcNumbers.includes(r)) pcNumbers.push(r);
     }
     return pcNumbers;
 }
