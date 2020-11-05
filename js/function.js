@@ -1,24 +1,35 @@
-function RandomPcNumbers(){
+function randomPcNumbers() {
     var pcNumbers = [];
-    for (var i = 0; i < 5 ; i++){
-    var random = Math.floor(Math.random() * 101);
-    pcNumbers.push(random);
-}
-    alert(pcNumbers);
+    while(pcNumbers.length < 5){
+        var r = Math.floor(Math.random() * 100) + 1;
+        if(pcNumbers.indexOf(r) === -1) pcNumbers.push(r);
+    }
     return pcNumbers;
 }
 
-function userInsertNumbers(pcNumbers){
+
+function playGame(pcNumbers) {
     var userNumbers = [];
-    for (var i = 0; i < 5 ; i++){
-        userNumbers.push(prompt('Inserisci in ORDINE i numeri visti in precedenza'));
-        console.log(userNumbers);
+    var inserisciNumero = 'Inserisci un numero';
+    var numeroValido = "Inserisci un numero Valido!";
+    var numeroDuplicato = "A pezzo demmerda i duplicati no.";
+    for (var i = 0; i < pcNumbers.length; i++) {
+        var numberValid = false;
+        var strDaMostrare = inserisciNumero;
+        while (numberValid == false) {
+            var number = parseInt(prompt(strDaMostrare));
+            if (!isNaN(number) && !userNumbers.includes(number)) {
+                numberValid = true;
+            } else {
+                if (isNaN(number)) {
+                    strDaMostrare = numeroValido;
+                } else if (userNumbers.includes(number)) {
+                    strDaMostrare = numeroDuplicato;
+                }
+                numberValid = false;
+            }
+        }
+        userNumbers.push(number);
+        (userNumbers[i] == pcNumbers[i]) ? console.log('Ti sei ricordato ' + pcNumbers[i]): console.log('Hai confuso ' + userNumbers[i] + ' con ' + pcNumbers[i]);
     }
-    for(var i = pcNumbers.length; i--;) {
-        if( pcNumbers[i] == userNumbers[i] )
-         console.log('Ti sei ricordato ' + userNumbers[i]);
-         else {
-             console.log('Hai confuso ' + userNumbers[i] + ' con ' + pcNumbers[i]);
-         }
-     }
 }

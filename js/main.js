@@ -1,6 +1,9 @@
 $(document).ready(function () {
-   var pcNumbers = RandomPcNumbers();
 
-    setTimeout(userInsertNumbers(pcNumbers), 5000);
+    var pcNumbers = randomPcNumbers();
+    alert(pcNumbers);
+    setTimeout(function() {
+        playGame(pcNumbers);
+    },5000);
     
 });
