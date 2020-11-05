@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    pcNumbers = RandomPcNumbers();
+   var pcNumbers = RandomPcNumbers();
 
-    setTimeout(userInsertNumbers(pcNumbers), 1000);
+    setTimeout(userInsertNumbers(pcNumbers), 5000);
+    
 });
