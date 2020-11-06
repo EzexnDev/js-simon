@@ -12,7 +12,7 @@ function playGame(pcNumbers) {
     var userNumbers = [];
     var inserisciNumero = 'Inserisci un numero';
     var numeroValido = "Inserisci un numero Valido!";
-    var numeroDuplicato = "A pezzo demmerda i duplicati no.";
+    var numeroDuplicato = "Niente duplicati!";
     for (var i = 0; i < pcNumbers.length; i++) {
         var numberValid = false;
         var strDaMostrare = inserisciNumero;
